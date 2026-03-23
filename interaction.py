@@ -9,3 +9,13 @@ prompt = ChatPromptTemplate.from_messages([
      "LLMs, LangChain e LangGraph. Responda de forma clara, didática e sempre em português."),
     ("human", "{pergunta}")
 ])
+
+parser = StrOutputParser()
+
+chain = prompt | llm | parser
+
+user_question = input("Digite sua pergunta: ")
+print("Pensando...")
+
+for chunk in chain.stream({"pergunta":  user_question}):
+    print(chunk, end="", flush=True)
