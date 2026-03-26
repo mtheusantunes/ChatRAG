@@ -37,7 +37,7 @@ try:
         chunks,
         embeddings,
         client=weaviate_client,
-        index_name="MyStudies"
+        index_name="StudyMaterials"
     )
     print("PDF está no banco!")
 
